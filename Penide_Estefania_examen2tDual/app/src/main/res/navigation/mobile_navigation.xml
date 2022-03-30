@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.example.penide_estefania_examen2tdual.ui.inicio.InicioFragment"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/nav_adivina"
+        android:name="com.example.penide_estefania_examen2tdual.ui.adivina.AdivinaFragment"
+        android:label="@string/menu_adivina"
+        tools:layout="@layout/fragment_adivina" >
+        <action
+            android:id="@+id/action_nav_adivina_to_puntuacionFragment5"
+            app:destination="@id/puntuacionFragment5" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tres"
+        android:name="com.example.penide_estefania_examen2tdual.ui.tres.TresFragment"
+        android:label="@string/menu_tres"
+        tools:layout="@layout/fragment_tres" />
+    <fragment
+        android:id="@+id/puntuacionFragment5"
+        android:name="com.example.penide_estefania_examen2tdual.ui.adivina.PuntuacionFragment"
+        android:label="Puntuación"
+        tools:layout="@layout/fragment_puntuacion" />
+</navigation>
