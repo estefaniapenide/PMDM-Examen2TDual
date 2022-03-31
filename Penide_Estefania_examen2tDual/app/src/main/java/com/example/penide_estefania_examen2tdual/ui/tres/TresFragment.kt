@@ -8,14 +8,21 @@ import android.widget.Button
 import android.widget.GridLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
+import com.example.penide_estefania_examen2tdual.R
 import com.example.penide_estefania_examen2tdual.databinding.FragmentTresBinding
+import com.example.penide_estefania_examen2tdual.ui.adivina.AdivinaViewModel
 
 class TresFragment : Fragment() {
 
     private var _binding: FragmentTresBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var modelo: Tablero
+    private lateinit var modelo: TableroViewModel
+
+    private val navGraphViewModel : TableroViewModel by navGraphViewModels<TableroViewModel>(R.id.mobile_navigation) {
+        defaultViewModelProviderFactory
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentTresBinding.inflate(inflater, container, false)
@@ -26,7 +33,7 @@ class TresFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonGrid.setOnClickListener(::onCellClicked) // Asignamos comportamiento a los botones
-        modelo = Tablero() // Instanciamos el modelo en el momento en que se lanza la activity
+        modelo = TableroViewModel() // Instanciamos el modelo en el momento en que se lanza la activity
 
         binding.buttonReiniciar.setOnClickListener {
             reset()
