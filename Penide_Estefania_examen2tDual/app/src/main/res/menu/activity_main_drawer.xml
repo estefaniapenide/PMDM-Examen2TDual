@@ -6,12 +6,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_inicio"
-            android:title="Inicio" />
+            android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_adivina"
-            android:title="Adivina la palabra" />
+            android:title="@string/menu_guess" />
         <item
             android:id="@+id/nav_tres"
-            android:title="Tres en Raya" />
+            android:title="@string/menu_tictactoe" />
     </group>
 </menu>

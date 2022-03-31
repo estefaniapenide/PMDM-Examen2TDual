@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/nav_inicio"
         android:name="com.example.penide_estefania_examen2tdual.ui.inicio.InicioFragment"
-        android:label="@string/menu_inicio"
+        android:label="@string/menu_home"
         tools:layout="@layout/fragment_inicio" />
 
     <fragment
         android:id="@+id/nav_adivina"
         android:name="com.example.penide_estefania_examen2tdual.ui.adivina.AdivinaFragment"
-        android:label="@string/menu_adivina"
+        android:label="@string/menu_guess"
         tools:layout="@layout/fragment_adivina" >
         <action
             android:id="@+id/action_nav_adivina_to_puntuacionFragment5"
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/nav_tres"
         android:name="com.example.penide_estefania_examen2tdual.ui.tres.TresFragment"
-        android:label="@string/menu_tres"
+        android:label="@string/menu_tictactoe"
         tools:layout="@layout/fragment_tres" >
         <action
             android:id="@+id/action_nav_tres_to_ganadorFragment"
@@ -33,12 +33,12 @@
     <fragment
         android:id="@+id/puntuacionFragment5"
         android:name="com.example.penide_estefania_examen2tdual.ui.adivina.PuntuacionFragment"
-        android:label="Puntuación"
+        android:label="@string/score_title"
         tools:layout="@layout/fragment_puntuacion" />
     <fragment
         android:id="@+id/ganadorFragment"
         android:name="com.example.penide_estefania_examen2tdual.ui.tres.GanadorFragment"
-        android:label="Ganador"
+        android:label="@string/winner_title"
         tools:layout="@layout/fragment_ganador">
     <argument
         android:name="ganador"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Penide_Estefania_examen2tDual</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Selecciona Juego</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_guess">Adivina la palabra</string>
+    <string name="menu_tictactoe">Tres en Raya</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_ready">Preapárate para...</string>
+    <string name="guess_word">¡Adivina la palabra!</string>
+    <string name="play">JUGAR</string>
+    <string name="skip">SALTAR</string>
+    <string name="got_it">ACERTASTE</string>
+    <string name="end_game">TERMINAR</string>
+    <string name="the_word_is">La palabra es...</string>
+    <string name="you_scored">You scored...</string>
+    <string name="score">Puntuación:</string>
+    <string name="winner">GANADOR:</string>
+    <string name="select_game">Selecciona el juego en el menú lateral</string>
+    <string name="reset">REINICIAR</string>
+    <string name="score_title">Puntuación</string>
+    <string name="winner_title">Ganador</string>
+    <string name="game_finished">El juego ha terminado</string>
+    <string name="no_words_left">No quedan palabras</string>
+
+    <string-array name="words">
+        <item>reina</item>
+        <item>hospital</item>
+        <item>baloncesto</item>
+        <item>gato</item>
+        <item>cambio</item>
+        <item>caracol</item>
+        <item>sopa</item>
+        <item>calendario</item>
+        <item>triste</item>
+        <item>escritorio</item>
+        <item>guitarra</item>
+        <item>casa</item>
+        <item>ferrocarril</item>
+        <item>cebra</item>
+        <item>gelatina</item>
+        <item>coche</item>
+        <item>cuervo</item>
+        <item>intercambio</item>
+        <item>bolsa</item>
+        <item>rollo</item>
+        <item>burbuja</item>
+    </string-array>
+</resources>
