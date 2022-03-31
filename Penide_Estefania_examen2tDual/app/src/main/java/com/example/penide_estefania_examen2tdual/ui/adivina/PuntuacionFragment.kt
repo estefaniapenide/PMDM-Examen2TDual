@@ -15,7 +15,6 @@ class PuntuacionFragment : Fragment() {
     private var _binding: FragmentPuntuacionBinding? = null
     private val binding get() = _binding!!
 
-
     private val navGraphViewModel : AdivinaViewModel by navGraphViewModels<AdivinaViewModel>(R.id.mobile_navigation) {
         defaultViewModelProviderFactory
     }
@@ -32,9 +31,8 @@ class PuntuacionFragment : Fragment() {
         navGraphViewModel.score.observe(viewLifecycleOwner){
             binding.tvScore.text=it.toString()
         }
-
-
     }
+
 
     private fun reset(){
         navGraphViewModel.score.postValue(0)
