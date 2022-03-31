@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.example.penide_estefania_examen2tdual.R
 import com.example.penide_estefania_examen2tdual.databinding.FragmentTresBinding
-import com.example.penide_estefania_examen2tdual.ui.adivina.AdivinaViewModel
+
 
 class TresFragment : Fragment() {
 
@@ -48,9 +48,9 @@ class TresFragment : Fragment() {
         val col = tag[1].digitToInt()
         modelo.marcar(row, col)?.let{  //jugadorQueMovio ->
             button.text = it.toString()
-            modelo.ganador?.let{ // Comprobamos si el movimiento ha generado un ganador
-                var ganador=it.toString()
-                findNavController().navigate(TresFragmentDirections.actionNavTresToGanadorFragment(ganador))
+            modelo.getGanador()?.let{ // Comprobamos si el movimiento ha generado un ganador
+                //var ganador=it.toString()
+                findNavController().navigate(TresFragmentDirections.actionNavTresToGanadorFragment())
                 //binding.winnerPlayerLabel.text = it.toString()
                 //binding.winnerPlayerViewGroup.visibility = View.VISIBLE
             }

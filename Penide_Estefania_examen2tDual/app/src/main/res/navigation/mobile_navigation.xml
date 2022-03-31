@@ -40,9 +40,5 @@
         android:name="com.example.penide_estefania_examen2tdual.ui.tres.GanadorFragment"
         android:label="@string/winner_title"
         tools:layout="@layout/fragment_ganador">
-    <argument
-        android:name="ganador"
-        app:argType="string"
-        android:defaultValue=""/>
     </fragment>
 </navigation>

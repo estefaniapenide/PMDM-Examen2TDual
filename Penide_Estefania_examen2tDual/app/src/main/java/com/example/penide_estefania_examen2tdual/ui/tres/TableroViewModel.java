@@ -1,8 +1,10 @@
-package com.example.penide_estefania_examen2tdual.ui.tres;
+/*package com.example.penide_estefania_examen2tdual.ui.tres;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class TableroViewModel extends ViewModel {
+
     public enum Jugador {X, O}
 
     class Celda {
@@ -17,8 +19,8 @@ public class TableroViewModel extends ViewModel {
 
     private Celda[][] celdas = new Celda[3][3]; // El tablero se compone de 3x3 celdas
 
-    private Jugador ganador;
-    public Jugador getGanador() {
+    private MutableLiveData<Jugador> ganador = new MutableLiveData<Jugador>(Jugador.X);
+    public MutableLiveData<Jugador> getGanador() {
         return ganador;
     }
 
@@ -38,7 +40,7 @@ public class TableroViewModel extends ViewModel {
         ganador = null;
         jugadorEnTurno = Jugador.X;
         estado = GameState.JUGANDO;
-    }
+    }*/
 
     /**
      * Método que marca la celda indicada por los párametros con el caracter del jugador en turno.
@@ -47,7 +49,7 @@ public class TableroViewModel extends ViewModel {
      * @param col 0..2
      * @return (devuelve) el jugador en turno o null si no se ha podido marcar (celda inválida o partida acabada)
      */
-    public Jugador marcar(int row, int col) {
+    /*public Jugador marcar(int row, int col) {
         if (estado == GameState.TERMINADO) return null; // No se sigue marcando si el juego ha terminado
         if (!isValida(row, col)) return null; // Celda inválida (la vista ya no debería permitirlo
 
@@ -57,7 +59,8 @@ public class TableroViewModel extends ViewModel {
 
         if (isMovimientoGana(jugadorQueMovio, row, col)) {
             estado = GameState.TERMINADO;
-            ganador = jugadorQueMovio;
+            ganador.setValue(jugadorQueMovio);
+
         } else {
             cambiarTurno(); // Cambia el Jugador en turno
         }
@@ -87,13 +90,13 @@ public class TableroViewModel extends ViewModel {
 
     private boolean isCeldaConValor(int row, int col) {
         return celdas[row][col].getValue() != null;
-    }
+    }*/
 
 
     /**
      * Devuelve true si el movimiento gana
      */
-    private boolean isMovimientoGana(Jugador player, int fila, int columna) {
+    /*private boolean isMovimientoGana(Jugador player, int fila, int columna) {
         return (celdas[fila][0].getValue() == player         // 3-in-the-row
                 && celdas[fila][1].getValue() == player
                 && celdas[fila][2].getValue() == player
@@ -113,4 +116,4 @@ public class TableroViewModel extends ViewModel {
     private void cambiarTurno() {
         jugadorEnTurno = jugadorEnTurno == Jugador.X ? Jugador.O : Jugador.X;
     }
-}
+}*/
