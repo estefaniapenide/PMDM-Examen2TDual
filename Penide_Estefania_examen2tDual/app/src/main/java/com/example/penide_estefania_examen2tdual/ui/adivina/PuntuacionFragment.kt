@@ -45,7 +45,7 @@ class PuntuacionFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        //reset()
+        reset()
         _binding=null
     }
 }

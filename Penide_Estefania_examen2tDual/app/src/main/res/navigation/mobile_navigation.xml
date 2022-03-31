@@ -25,10 +25,24 @@
         android:id="@+id/nav_tres"
         android:name="com.example.penide_estefania_examen2tdual.ui.tres.TresFragment"
         android:label="@string/menu_tres"
-        tools:layout="@layout/fragment_tres" />
+        tools:layout="@layout/fragment_tres" >
+        <action
+            android:id="@+id/action_nav_tres_to_ganadorFragment"
+            app:destination="@id/ganadorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/puntuacionFragment5"
         android:name="com.example.penide_estefania_examen2tdual.ui.adivina.PuntuacionFragment"
         android:label="Puntuación"
         tools:layout="@layout/fragment_puntuacion" />
+    <fragment
+        android:id="@+id/ganadorFragment"
+        android:name="com.example.penide_estefania_examen2tdual.ui.tres.GanadorFragment"
+        android:label="Ganador"
+        tools:layout="@layout/fragment_ganador">
+    <argument
+        android:name="ganador"
+        app:argType="string"
+        android:defaultValue=""/>
+    </fragment>
 </navigation>
