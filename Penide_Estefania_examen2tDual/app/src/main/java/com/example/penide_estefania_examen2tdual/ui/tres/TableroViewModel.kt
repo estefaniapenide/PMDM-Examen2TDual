@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 
 class TableroViewModel : ViewModel() {
 
+    //Intentando usar ViewModel para el tres en raya
+
     // Definimos 2 jugadores identificados por los caracteres 'X' y 'O', que serán los que se escriban en la celda
     enum class Jugador {
         X, O
