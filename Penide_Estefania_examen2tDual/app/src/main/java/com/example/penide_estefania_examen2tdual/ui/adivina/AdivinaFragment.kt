@@ -54,7 +54,7 @@ class AdivinaFragment : Fragment() {
     }
 
     private fun onEndGame(){
-        Toast.makeText(activity,"Game has just finished",Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity,R.string.game_finished,Toast.LENGTH_SHORT).show()
         findNavController().navigate(AdivinaFragmentDirections.actionNavAdivinaToPuntuacionFragment5())
     }
 
@@ -76,7 +76,7 @@ class AdivinaFragment : Fragment() {
             lista=it
         }
         if(lista.isNullOrEmpty()){
-          Snackbar.make(binding.root,"No quedan palabras",Snackbar.LENGTH_LONG).setAction("REINICIAR") {
+          Snackbar.make(binding.root,R.string.no_words_left,Snackbar.LENGTH_LONG).setAction(R.string.reset) {
                 reset()
             }
            .show()

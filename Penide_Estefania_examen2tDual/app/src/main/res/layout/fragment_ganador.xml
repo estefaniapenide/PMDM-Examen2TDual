@@ -12,7 +12,7 @@
         android:id="@+id/tvGanadorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GANADOR:"
+        android:text="@string/winner"
         android:textSize="20dp"
         android:layout_margin="15dp"
         tools:layout_editor_absoluteX="153dp"

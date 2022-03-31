@@ -2,14 +2,14 @@
     <string name="app_name">Penide_Estefania_examen2tDual</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Selecciona Juego</string>
+    <string name="nav_header_title">Select Game</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_inicio">Inicio</string>
-    <string name="menu_adivina">Adivina la palabra</string>
-    <string name="menu_tres">Tres en Raya</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_guess">Guess the word</string>
+    <string name="menu_tictactoe">Tic Tac Toe</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -22,6 +22,13 @@
     <string name="the_word_is">The word is...</string>
     <string name="you_scored">You scored...</string>
     <string name="score">Score:</string>
+    <string name="winner">WINNER:</string>
+    <string name="select_game">Select a game from the side menu</string>
+    <string name="reset">RESET</string>
+    <string name="score_title">Score</string>
+    <string name="winner_title">Winner</string>
+    <string name="game_finished">Game has just finished</string>
+    <string name="no_words_left">There are no words left</string>
 
     <string-array name="words">
         <item>queen</item>
