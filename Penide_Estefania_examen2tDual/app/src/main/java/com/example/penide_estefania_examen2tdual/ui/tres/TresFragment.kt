@@ -1,16 +1,20 @@
 package com.example.penide_estefania_examen2tdual.ui.tres
 
 
+import android.content.Context.WINDOW_SERVICE
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.Toast
+import androidx.core.app.ActivityCompat.recreate
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.penide_estefania_examen2tdual.R
 import com.example.penide_estefania_examen2tdual.databinding.FragmentTresBinding
+
 
 class TresFragment : Fragment() {
 
@@ -19,26 +23,29 @@ class TresFragment : Fragment() {
 
     private lateinit var modelo: Tablero
 
-    var miCurrentOrientation = this.getResources().getConfiguration().orientation
+    /*var miCurrentOrientation = requireActivity().getResources().getConfiguration().orientation
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         if (miCurrentOrientation != newConfig.orientation) {
-            activity?.recreate(); // This recreate the activity if you can properly restore your activity state.
+            requireActivity().recreate(); // This recreate the activity if you can properly restore your activity state.
         }
-    }
-
-    /*override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        // Checks the orientation of the screen
-        /*if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(activity, "landscape", Toast.LENGTH_SHORT).show()
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Toast.makeText(activity, "portrait", Toast.LENGTH_SHORT).show()
-        }*/
-
     }*/
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            
+            activity?.setContentView(binding.root)
+            Toast.makeText(activity, "landscape", Toast.LENGTH_SHORT).show()
+        } else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            activity?.finishAndRemoveTask()
+            activity?.setContentView(binding.root)
+            Toast.makeText(activity, "portrait", Toast.LENGTH_SHORT).show()
+        }
+
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentTresBinding.inflate(inflater, container, false)

@@ -1,5 +1,6 @@
 package com.example.penide_estefania_examen2tdual
 
+import android.app.Activity
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
@@ -22,6 +23,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController:NavController
     private lateinit var navHostFragment:NavHostFragment
 
+    /*var miCurrentOrientation = getResources().getConfiguration().orientation
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (miCurrentOrientation != newConfig.orientation) {
+            recreate(); // This recreate the activity if you can properly restore your activity state.
+        }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +48,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
     }
-
-
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.fragmentContainerView)
