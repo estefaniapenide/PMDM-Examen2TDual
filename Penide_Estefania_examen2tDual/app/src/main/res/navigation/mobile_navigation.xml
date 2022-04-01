@@ -34,7 +34,12 @@
         android:id="@+id/puntuacionFragment5"
         android:name="com.example.penide_estefania_examen2tdual.ui.adivina.PuntuacionFragment"
         android:label="@string/score_title"
-        tools:layout="@layout/fragment_puntuacion" />
+        tools:layout="@layout/fragment_puntuacion">
+    <argument
+        android:name="puntuacion"
+        app:argType="string"
+        android:defaultValue="0"/>
+    </fragment>
     <fragment
         android:id="@+id/ganadorFragment"
         android:name="com.example.penide_estefania_examen2tdual.ui.tres.GanadorFragment"

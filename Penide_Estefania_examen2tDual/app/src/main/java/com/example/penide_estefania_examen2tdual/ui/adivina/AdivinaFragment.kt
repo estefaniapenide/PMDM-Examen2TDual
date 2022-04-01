@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.example.penide_estefania_examen2tdual.R
@@ -18,16 +18,15 @@ class AdivinaFragment : Fragment() {
     private var _binding: FragmentAdivinaBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var modelo: AdivinaModel
+
     lateinit var lista:MutableList<String>
-
-
-    private val navGraphViewModel : AdivinaViewModel by navGraphViewModels<AdivinaViewModel>(R.id.mobile_navigation) {
-        defaultViewModelProviderFactory
-    }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAdivinaBinding.inflate(inflater, container, false)
+        modelo = ViewModelProvider(this).get(AdivinaModel::class.java)
+        reset()
         return binding.root
     }
 
@@ -35,47 +34,43 @@ class AdivinaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        updateWordText()
-        updateScoreText()
-
         binding.btGotIt.setOnClickListener { onCorrect() }
         binding.btSkip.setOnClickListener { onSkip() }
         binding.btEndGame.setOnClickListener { onEndGame() }
+        updateWordText()
+        updateScoreText()
     }
 
     private fun onCorrect(){
         juegoTerminado()
-        navGraphViewModel.onCorrect()
+        modelo.onCorrect()
+        updateWordText()
+        updateScoreText()
     }
 
     private fun onSkip(){
         juegoTerminado()
-        navGraphViewModel.onSkip()
+        modelo.onSkip()
+        updateWordText()
+        updateScoreText()
     }
 
     private fun onEndGame(){
         Toast.makeText(activity,R.string.game_finished,Toast.LENGTH_SHORT).show()
-        findNavController().navigate(AdivinaFragmentDirections.actionNavAdivinaToPuntuacionFragment5())
+        val puntuacion=modelo.score.toString()
+        findNavController().navigate(AdivinaFragmentDirections.actionNavAdivinaToPuntuacionFragment5(puntuacion))
     }
 
     private fun updateWordText(){
-        navGraphViewModel.word.observe(viewLifecycleOwner){
-            binding.tvWord.text=it
-        }
+        binding.tvWord.text = modelo.word
     }
 
     private fun updateScoreText(){
-        navGraphViewModel.score.observe(viewLifecycleOwner){
-            binding.tvScoreGame.text=it.toString()
-        }
+        binding.tvScoreGame.text = modelo.score.toString()
     }
 
-
-    private fun juegoTerminado(){
-        navGraphViewModel.wordListLiveData.observe(viewLifecycleOwner){
-            lista=it
-        }
-        if(lista.isNullOrEmpty()){
+   private fun juegoTerminado(){
+        if(modelo.wordList.isNullOrEmpty()){
           Snackbar.make(binding.root,R.string.no_words_left,Snackbar.LENGTH_LONG).setAction(R.string.reset) {
                 reset()
             }
@@ -84,10 +79,12 @@ class AdivinaFragment : Fragment() {
     }
 
     private fun reset(){
-        navGraphViewModel.score.postValue(0)
-        navGraphViewModel.wordListLiveData.setValue(resources.getStringArray(R.array.words).toMutableList())
-        navGraphViewModel.resetList()
-        navGraphViewModel.nextWord()
+        modelo.score=0
+        modelo.wordList = resources.getStringArray(R.array.words).toMutableList()
+        modelo.resetList()
+        modelo.nextWord()
+        updateWordText()
+        updateScoreText()
     }
 
 

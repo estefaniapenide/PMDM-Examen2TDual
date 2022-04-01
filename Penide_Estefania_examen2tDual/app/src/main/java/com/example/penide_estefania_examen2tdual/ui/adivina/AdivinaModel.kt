@@ -7,25 +7,28 @@ import androidx.lifecycle.MutableLiveData
 import com.example.penide_estefania_examen2tdual.R
 
 
-class AdivinaViewModel(application: Application) : AndroidViewModel(application) {
+class AdivinaModel(application: Application) : AndroidViewModel(application) {
     private val resources = application.resources
 
-    var word = MutableLiveData("")
-    var score = MutableLiveData(0)
-    var wordListLiveData = MutableLiveData<MutableList<String>>()
+    var word = ""
+    var score = 0
+
+   lateinit var wordList: MutableList<String>
+
+    //var wordListLiveData = MutableLiveData<MutableList<String>>()
 
     var juegoTerminado:Boolean=false
 
 
     init {
         Log.i("ViewModel", "ViewModel created!")
-        wordListLiveData.setValue(resources.getStringArray(R.array.words).toMutableList())
+        wordList = resources.getStringArray(R.array.words).toMutableList()
         resetList()
         nextWord()
     }
 
     fun resetList() {
-        wordListLiveData.value?.apply { shuffle() }
+        wordList.apply { shuffle() }
     }
 
 
@@ -40,18 +43,18 @@ class AdivinaViewModel(application: Application) : AndroidViewModel(application)
     /** Methods for updating the UI **/
     fun onSkip() {
         if (!juegoTerminado) {
-            score.value?.let { score.value = it - 1 }
+            score--
         }
-        resetList()
+        //resetList()
         nextWord()
 
     }
 
     fun onCorrect() {
         if (!juegoTerminado) {
-            score.value?.let { score.value = it + 1 }
+            score++
         }
-        resetList()
+        //resetList()
         nextWord()
 
     }
@@ -60,9 +63,9 @@ class AdivinaViewModel(application: Application) : AndroidViewModel(application)
      * Moves to the next word in the list.
      */
     fun nextWord() {
-        if (!wordListLiveData.value.isNullOrEmpty()) {
+        if (!wordList.isNullOrEmpty()) {
             juegoTerminado=false
-            word.setValue(wordListLiveData.value?.removeAt(0))// Select and remove a word from the list
+            word=wordList.removeAt(0)// Select and remove a word from the list
         }else{
             juegoTerminado=true
         }
