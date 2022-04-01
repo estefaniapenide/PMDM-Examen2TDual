@@ -53,7 +53,7 @@ class TableroViewModel : ViewModel(){
      * @param col 0..2
      * @return (devuelve) el jugador en turno o null si no se ha podido marcar (celda inválida o partida acabada)
      */
-    fun marcar(row: MutableLiveData<Int>, col: MutableLiveData<Int>): Jugador? {
+    fun marcar(row:Int, col:Int): Jugador? {
         //Definir aquí otras row y col auxiliares para asignales el valor que se observa en las que se pasa por parámetro
         if (estado == GameState.TERMINADO) return null // No se sigue marcando si el juego ha terminado
         if (!isValida(row, col)) return null // Celda inválida (la vista ya no debería permitirlo

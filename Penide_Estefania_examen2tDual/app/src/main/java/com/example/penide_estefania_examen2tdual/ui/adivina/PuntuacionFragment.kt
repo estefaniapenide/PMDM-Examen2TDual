@@ -29,9 +29,10 @@ class PuntuacionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navGraphViewModel.score.observe(viewLifecycleOwner){
+        binding.tvScore.text=navGraphViewModel.finalScore.toString()
+        /*navGraphViewModel.score.observe(viewLifecycleOwner){
             binding.tvScore.text=it.toString()
-        }
+        }*/
 
 
     }

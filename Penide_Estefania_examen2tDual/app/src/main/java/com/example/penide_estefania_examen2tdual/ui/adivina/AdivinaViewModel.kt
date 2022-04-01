@@ -14,6 +14,8 @@ class AdivinaViewModel(application: Application) : AndroidViewModel(application)
     var score = MutableLiveData(0)
     var wordListLiveData = MutableLiveData<MutableList<String>>()
 
+    var finalScore=0
+
     var juegoTerminado:Boolean=false
 
 

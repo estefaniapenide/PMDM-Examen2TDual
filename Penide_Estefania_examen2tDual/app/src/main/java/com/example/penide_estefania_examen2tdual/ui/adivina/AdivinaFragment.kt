@@ -67,6 +67,7 @@ class AdivinaFragment : Fragment() {
     private fun updateScoreText(){
         navGraphViewModel.score.observe(viewLifecycleOwner){
             binding.tvScoreGame.text=it.toString()
+            navGraphViewModel.finalScore=it
         }
     }
 
