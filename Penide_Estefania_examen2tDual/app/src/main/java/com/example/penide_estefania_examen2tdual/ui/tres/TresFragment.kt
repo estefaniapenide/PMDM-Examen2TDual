@@ -36,7 +36,7 @@ class TresFragment : Fragment() {
         super.onConfigurationChanged(newConfig)
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            
+
             activity?.setContentView(binding.root)
             Toast.makeText(activity, "landscape", Toast.LENGTH_SHORT).show()
         } else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
